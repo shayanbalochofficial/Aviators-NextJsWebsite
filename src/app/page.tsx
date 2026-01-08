@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { offers } from "@/data/offers";
+import { Footer } from "./../components/footer";
 
 export const metadata: Metadata = {
   title: "Aviators - Book Flights Worldwide",
@@ -72,7 +73,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/cities">
-                  <Button variant="outline" className="cursor-pointer">
+                  <Button variant="outline" className="cursor-pointer hover:bg-primary">
                     Explore Cities
                   </Button>
                 </Link>
@@ -140,7 +141,53 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/*  */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-center mb-12">Start Your Journey</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Link href="/cities">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold mb-1">Explore Cities</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Discover domestic and international destinations
+                        </p>
+                      </div>
+                      <span className="text-primary font-bold text-2xl shrink-0">
+                        →
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/flights">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold mb-1">Search Flights</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Find and book your perfect flight
+                        </p>
+                      </div>
+                      <span className="text-primary font-bold text-2xl shrink-0">
+                        →
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
+      <Footer />
     </div>
   );
 }
