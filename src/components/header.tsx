@@ -11,12 +11,12 @@ import {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/", label: "Flights" },
-  { href: "/", label: "Cities" },
-  { href: "/", label: "Offers" },
-  { href: "/", label: "About" },
-  { href: "/", label: "Contact" },
-  { href: "/", label: "FAQ" },
+  { href: "/flights", label: "Flights" },
+  { href: "/cities", label: "Cities" },
+  { href: "/offers", label: "Offers" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export function Header() {
