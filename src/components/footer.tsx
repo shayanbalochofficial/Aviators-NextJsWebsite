@@ -16,13 +16,7 @@ export function Footer() {
               Headquartered in Karachi — I.I. Chundrigar Road
             </p>
           </div>
-          {/* milne hai mujhe se aayi jaane
-          kyu phir tanhaayi kis mor pe le aayi hai ashiqi 
-          jaane kyu me sochta hu khaalo
-          sa main ik raasta hu seene me jo kahi pe basi hai
-          wesi koi awaaz hu me, sun lo mujhe phir kahi keh ne lage ye kabhi kabhi kabh
-          mine hai mujhe se aayi jaane phir kyu tanhaayi 
-          kis mor pe le aayi aaashiquui */}
+
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">
