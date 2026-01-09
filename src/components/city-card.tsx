@@ -17,7 +17,7 @@ export interface City {
 }
 
 export function CityCard({ city }: { city: City }) {
-  return (
+    return (
     <Link href={`/cities/${city.slug}`}>
       <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
         <div className="bg-primary h-40 flex items-center justify-center text-white text-center p-4">
