@@ -190,7 +190,207 @@ export const cities: City[] = [
     highlights: ["Industrial City", "Shopping", "Modern Development"],
   },
 
-
+  //   International Time
+  {
+    slug: "dubai",
+    name: "Dubai",
+    country: "United Arab Emirates",
+    description:
+      "A futuristic desert city known for luxury, shopping, and stunning architecture.",
+    imagePath: "/cities/dubai.jpg",
+    popularRoutes: [
+      {
+        to: "Karachi",
+        exampleRoutes: ["Dubai → Karachi", "Dubai → Lahore"],
+      },
+      {
+        to: "London",
+        exampleRoutes: ["Dubai → London"],
+      },
+    ],
+    recommendedAirlines: ["Emirates", "Aviators", "Etihad"],
+    travelTips: [
+      "Visit Burj Khalifa",
+      "Shop at Dubai Mall",
+      "Enjoy desert safari",
+    ],
+    highlights: ["Luxury Shopping", "Modern Architecture", "Beach Life"],
+  },
+  {
+    slug: "london",
+    name: "London",
+    country: "United Kingdom",
+    description:
+      "England's historic capital, blending royal heritage with modern culture.",
+    imagePath: "/cities/london.jpg",
+    popularRoutes: [
+      {
+        to: "Karachi",
+        exampleRoutes: ["London → Karachi"],
+      },
+      {
+        to: "New York",
+        exampleRoutes: ["London → New York"],
+      },
+    ],
+    recommendedAirlines: ["British Airways", "Aviators"],
+    travelTips: ["See Big Ben", "Visit Tower of London", "Explore museums"],
+    highlights: ["Royal Heritage", "Museums", "Theatre District"],
+  },
+  {
+    slug: "new-york",
+    name: "New York",
+    country: "United States",
+    description:
+      "The city that never sleeps, iconic American metropolis with world-class attractions.",
+    imagePath: "/cities/new-york.jpg",
+    popularRoutes: [
+      {
+        to: "London",
+        exampleRoutes: ["New York → London"],
+      },
+      {
+        to: "Dubai",
+        exampleRoutes: ["New York → Dubai"],
+      },
+    ],
+    recommendedAirlines: ["United", "American Airlines", "Aviators"],
+    travelTips: [
+      "Visit Times Square",
+      "Climb Empire State Building",
+      "Explore Central Park",
+    ],
+    highlights: ["Iconic Landmarks", "Broadway Shows", "Cosmopolitan"],
+  },
+  {
+    slug: "istanbul",
+    name: "Istanbul",
+    country: "Turkey",
+    description:
+      "Where East meets West, spanning two continents with rich Ottoman history.",
+    imagePath: "/cities/istanbul.jpg",
+    popularRoutes: [
+      {
+        to: "Karachi",
+        exampleRoutes: ["Istanbul → Karachi"],
+      },
+      {
+        to: "London",
+        exampleRoutes: ["Istanbul → London"],
+      },
+    ],
+    recommendedAirlines: ["Turkish Airlines", "Aviators"],
+    travelTips: [
+      "Visit Blue Mosque",
+      "Explore Grand Bazaar",
+      "Take Bosphorus cruise",
+    ],
+    highlights: ["Historic Mosques", "Bazaars", "Bosphorus Views"],
+  },
+  {
+    slug: "kuala-lumpur",
+    name: "Kuala Lumpur",
+    country: "Malaysia",
+    description:
+      "Malaysia's vibrant capital with modern skyline and diverse cultural experiences.",
+    imagePath: "/cities/kuala-lumpur.jpg",
+    popularRoutes: [
+      {
+        to: "Bangkok",
+        exampleRoutes: ["Kuala Lumpur → Bangkok"],
+      },
+      {
+        to: "Karachi",
+        exampleRoutes: ["Kuala Lumpur → Karachi"],
+      },
+    ],
+    recommendedAirlines: ["Malaysia Airlines", "Aviators"],
+    travelTips: [
+      "Climb Petronas Towers",
+      "Visit Menara Tower",
+      "Explore street food markets",
+    ],
+    highlights: ["Modern Skyline", "Diverse Culture", "Shopping Malls"],
+  },
+  {
+    slug: "bangkok",
+    name: "Bangkok",
+    country: "Thailand",
+    description:
+      "Thailand's bustling capital famous for temples, food, and vibrant nightlife.",
+    imagePath: "/cities/bangkok.jpg",
+    popularRoutes: [
+      {
+        to: "Kuala Lumpur",
+        exampleRoutes: ["Bangkok → Kuala Lumpur"],
+      },
+      {
+        to: "Singapore",
+        exampleRoutes: ["Bangkok → Singapore"],
+      },
+    ],
+    recommendedAirlines: ["Thai Airways", "Aviators"],
+    travelTips: [
+      "Visit Grand Palace",
+      "Explore floating markets",
+      "Experience Muay Thai",
+    ],
+    highlights: ["Ancient Temples", "Street Food", "Nightlife"],
+  },
+  {
+    slug: "singapore",
+    name: "Singapore",
+    country: "Singapore",
+    description:
+      "A modern city-state blending Chinese, Malay, and Indian cultures seamlessly.",
+    imagePath: "/cities/singapore.jpg",
+    popularRoutes: [
+      {
+        to: "Bangkok",
+        exampleRoutes: ["Singapore → Bangkok"],
+      },
+      {
+        to: "Kuala Lumpur",
+        exampleRoutes: ["Singapore → Kuala Lumpur"],
+      },
+    ],
+    recommendedAirlines: ["Singapore Airlines", "Aviators"],
+    travelTips: [
+      "Visit Marina Bay Sands",
+      "Explore Gardens by the Bay",
+      "Enjoy hawker centers",
+    ],
+    highlights: [
+      "Modern City-State",
+      "Cultural Diversity",
+      "Culinary Excellence",
+    ],
+  },
+  {
+    slug: "doha",
+    name: "Doha",
+    country: "Qatar",
+    description:
+      "Qatar's modern capital on the Persian Gulf with world-class amenities.",
+    imagePath: "/cities/doha.jpg",
+    popularRoutes: [
+      {
+        to: "Dubai",
+        exampleRoutes: ["Doha → Dubai"],
+      },
+      {
+        to: "Istanbul",
+        exampleRoutes: ["Doha → Istanbul"],
+      },
+    ],
+    recommendedAirlines: ["Qatar Airways", "Aviators"],
+    travelTips: [
+      "Visit Museum of Islamic Art",
+      "Explore Corniche",
+      "See Pearl Monument",
+    ],
+    highlights: ["Modern Architecture", "Shopping", "Cultural Museum"],
+  },
 ];
 
 export function getCityBySlug(slug: string): City | undefined {
