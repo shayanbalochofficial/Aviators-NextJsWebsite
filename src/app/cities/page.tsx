@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CityCard } from "@/components/city-card";
 import { domesticCities, internationalCities } from "@/data/cities";
-
-export const metadata: Metadata = {
-  title: "Explore Cities",
-  description:
-    "Discover domestic and international cities. Book flights to your dream destinations.",
-};
 
 export default function Cities() {
   return (
