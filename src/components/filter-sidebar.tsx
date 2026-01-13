@@ -1,24 +1,19 @@
-"use client";
+"use client"
 
-import type React from "react";
-import { useCallback, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import type React from "react"
+import { useCallback, useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 interface FilterSidebarProps {
-  onPriceChange: (min: number, max: number) => void;
-  onStopsChange: (stops: number[]) => void;
-  onAirlineChange: (airlines: string[]) => void;
-  onClassChange: (classes: string[]) => void;
-  airlines: string[];
-  maxPrice: number;
+  onPriceChange: (min: number, max: number) => void
+  onStopsChange: (stops: number[]) => void
+  onAirlineChange: (airlines: string[]) => void
+  onClassChange: (classes: string[]) => void
+  airlines: string[]
+  maxPrice: number
 }
 
 export function FilterSidebar({
@@ -29,63 +24,70 @@ export function FilterSidebar({
   airlines,
   maxPrice,
 }: FilterSidebarProps) {
-  const [selectedStops, setSelectedStops] = useState<number[]>([0, 1, 2]);
-  const [selectedAirlines, setSelectedAirlines] = useState<string[]>([]);
-  const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
+  const [selectedStops, setSelectedStops] = useState<number[]>([0, 1, 2])
+  const [selectedAirlines, setSelectedAirlines] = useState<string[]>([])
+  const [selectedClasses, setSelectedClasses] = useState<string[]>([])
+  const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice)
 
-  const handlePriceChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = Number(e.target.value);
-      onPriceChange(0, value);
-    },
-    [onPriceChange]
-  );
+  // Reset price when the overall maxPrice changes (e.g., new search results)
+  useEffect(() => {
+    setCurrentMaxPrice(maxPrice)
+  }, [maxPrice])
+
+  const handlePriceChange = (value: number) => {
+    setCurrentMaxPrice(value)
+    onPriceChange(0, value)
+  }
 
   const handleStopsChange = (stops: number) => {
     const updated = selectedStops.includes(stops)
       ? selectedStops.filter((s) => s !== stops)
-      : [...selectedStops, stops];
+      : [...selectedStops, stops]
 
-    setSelectedStops(updated.length > 0 ? updated : [0, 1, 2]);
-    onStopsChange(updated.length > 0 ? updated : [0, 1, 2]);
-  };
+    const finalStops = updated.length > 0 ? updated : [0, 1, 2]
+    setSelectedStops(finalStops)
+    onStopsChange(finalStops)
+  }
 
   const handleAirlineChange = (airline: string) => {
     const updated = selectedAirlines.includes(airline)
       ? selectedAirlines.filter((a) => a !== airline)
-      : [...selectedAirlines, airline];
+      : [...selectedAirlines, airline]
 
-    setSelectedAirlines(updated);
-    onAirlineChange(updated);
-  };
+    setSelectedAirlines(updated)
+    onAirlineChange(updated)
+  }
 
   const handleClassChange = (classType: string) => {
     const updated = selectedClasses.includes(classType)
       ? selectedClasses.filter((c) => c !== classType)
-      : [...selectedClasses, classType];
+      : [...selectedClasses, classType]
 
-    setSelectedClasses(updated);
-    onClassChange(updated);
-  };
+    setSelectedClasses(updated)
+    onClassChange(updated)
+  }
 
-  const FilterContent = () => (
+  // Shared filter JSX (as a variable, not a component function → avoids the "component created during render" error)
+  const filterContent = (
     <div className="space-y-6">
+      {/* Price Filter */}
       <div>
         <Label className="text-base font-bold mb-4 block">Price Range</Label>
         <input
           type="range"
           min="0"
           max={maxPrice}
-          defaultValue={maxPrice}
-          onChange={handlePriceChange}
+          value={currentMaxPrice}
+          onChange={(e) => handlePriceChange(Number(e.target.value))}
           className="w-full"
         />
         <div className="flex justify-between mt-2 text-sm text-muted-foreground">
           <span>$0</span>
-          <span>${maxPrice}</span>
+          <span>${currentMaxPrice}</span>
         </div>
       </div>
 
+      {/* Stops Filter */}
       <div>
         <Label className="text-base font-bold mb-4 block">Stops</Label>
         <div className="space-y-2">
@@ -107,6 +109,7 @@ export function FilterSidebar({
         </div>
       </div>
 
+      {/* Airline Filter */}
       <div>
         <Label className="text-base font-bold mb-4 block">Airlines</Label>
         <div className="space-y-2 max-h-48 overflow-y-auto">
@@ -124,6 +127,7 @@ export function FilterSidebar({
         </div>
       </div>
 
+      {/* Class Filter */}
       <div>
         <Label className="text-base font-bold mb-4 block">Class</Label>
         <div className="space-y-2">
@@ -141,10 +145,11 @@ export function FilterSidebar({
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <>
+      {/* Mobile Filter Button */}
       <div className="md:hidden mb-6">
         <Sheet>
           <SheetTrigger asChild>
@@ -155,7 +160,7 @@ export function FilterSidebar({
           <SheetContent side="right" className="w-80">
             <SheetTitle>Filters</SheetTitle>
             <div className="mt-6">
-              <FilterContent />
+              {filterContent}
             </div>
           </SheetContent>
         </Sheet>
@@ -165,10 +170,10 @@ export function FilterSidebar({
       <div className="hidden md:block">
         <Card className="sticky top-20">
           <CardContent className="pt-6">
-            <FilterContent />
+            {filterContent}
           </CardContent>
         </Card>
       </div>
     </>
-  );
+  )
 }
