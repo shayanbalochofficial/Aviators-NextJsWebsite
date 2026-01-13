@@ -22,6 +22,7 @@ export interface Flight {
   aircraft: string;
 }
 
+
 interface FlightCardProps {
   flight: Flight;
   onSelectFlight?: (flight: Flight) => void;
