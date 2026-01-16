@@ -22,7 +22,6 @@ export interface Flight {
   aircraft: string;
 }
 
-
 interface FlightCardProps {
   flight: Flight;
   onSelectFlight?: (flight: Flight) => void;
@@ -100,10 +99,10 @@ export function FlightCard({ flight, onSelectFlight }: FlightCardProps) {
                 Select
               </Button>
             ) : (
-              <Link href={`/booking?flightId=${flight.id}`}>
+              <Link href={`/`}>
                 <Button
                   size="sm"
-                  className="w-full bg-primary hover:bg-primary/90"
+                  className="w-full bg-primary hidden hover:bg-primary/90"
                 >
                   Book Now
                 </Button>

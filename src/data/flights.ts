@@ -43,7 +43,7 @@ function generateFlights(): Flight[] {
     "Boeing 777",
     "Airbus A380",
     "Boeing 787",
-    "Boeing Shayan(hehe)",
+    "Boeing idk",
     "Airbus A350",
     "Boeing 737",
   ];

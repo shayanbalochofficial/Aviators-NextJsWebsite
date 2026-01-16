@@ -20,7 +20,7 @@ export function CityCard({ city }: { city: City }) {
     return (
     <Link href={`/cities/${city.slug}`}>
       <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
-        <div className="bg-primary h-40 flex items-center justify-center text-white text-center p-4">
+        <div className="border-primary hover:bg-primary hover:text-white transition border-2 h-40 flex items-center justify-center text-black text-center p-4">
           <div>
             <h3 className="text-2xl font-bold">{city.name}</h3>
             <p className="text-sm opacity-90">{city.country}</p>
