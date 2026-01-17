@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aviators
+
+A modern flight platform built with Next.js 16, TypeScript, Tailwind CSS, and shadcn/ui components.
+
+## Features
+
+- **Flight Search & Filtering**: Search flights by city, date, and passengers with advanced filtering (price, stops, airlines, class)
+- **City Exploration**: Browse 15+ domestic and international cities with detailed information
+- **Special Offers**: Promotional codes and discounts
+- **Responsive Design**: Mobile-first design with clean, geometric UI
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Date Handling**: date-fns
+- **Notifications**: Sonner
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx                 # Home page
+│   ├── layout.tsx              # Root layout
+│   ├── globals.css             # Global styles with design tokens
+│   ├── about/page.tsx          # About page
+│   ├── contact/page.tsx        # Contact form
+│   ├── cities/
+│   │   ├── page.tsx            # Cities listing
+│   │   └── [slug]/page.tsx     # City detail pages
+│   ├── flights/page.tsx        # Flight search & results
+│   ├── offers/page.tsx         # Special offers
+│   └── faq/page.tsx            # FAQ accordion
+├── components/
+│   ├── header.tsx              # Navigation header
+│   ├── footer.tsx              # Footer
+│   ├── flight-card.tsx         # Flight listing card
+│   ├── filter-sidebar.tsx      # Flight filters
+│   ├── city-card.tsx           # City card component
+├── data/
+│   ├── cities.ts               # City data (15 cities)
+│   ├── flights.ts              # Flight data (dynamically generated)
+│   └── offers.ts               # Promotional offers
+├── lib/
+│   └── types.ts                # TypeScript interfaces
+└── public
+```
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+1. Clone or download the project
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Management
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Cities
+- 7 domestic cities (Karachi, Lahore, Islamabad, Peshawar, Quetta, Multan, Faisalabad)
+- 8 international cities (Dubai, London, New York, Istanbul, Kuala Lumpur, Bangkok, Singapore, Doha)
+- Each city has description, highlights, popular routes, airlines, and tips
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Flights
+- Dynamically generated flights
+- Departure dates: 7-90 days in future
+- Realistic pricing: $200-$1000
+- Multiple airlines with different classes
+- Filter by: price, stops, airline, class, duration
 
-## Learn More
+### Offers
+- Promotional offers with varying discounts
+- Valid until dates in the future
+- Promo codes for booking
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features Explained
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Flight Search
+- Search by departure/arrival city, date, passengers, class
+- Results persist via URL query parameters
+- Supports optional return date
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Filtering
+- **Price Range**: Slider to filter by maximum price
+- **Stops**: Filter non-stop, 1-stop, 2+ stops
+- **Airlines**: Checkbox filtering by airline
+- **Class**: Economy, Business, First class options
+- **Sorting**: Price (asc), Duration (asc), Departure time (asc)
 
-## Deploy on Vercel
+### City Pages
+- Grid listing of all cities (domestic + international)
+- Individual city detail pages with:
+  - City description and highlights
+  - Popular routes from that city
+  - Recommended airlines
+  - Travel tips
+  - Relevant offers
+  - Flight search pre-filled with city as origin
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Accessibility
+
+- Semantic HTML (header, main, footer, nav)
+- WCAG AA contrast compliance
+- Keyboard navigation support
+- Mobile-responsive design
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Notes
+
+- All flights have future departure dates (7-90 days from today)
+
+## Future Enhancements
+
+- Booking System
+- User authentication with booking history
+- Real payment gateway integration (Stripe)
+- Email notifications
+- Hotel and car rental bookings
+- Travel insurance options
+- Loyalty program
+- Multi-language support
+
+---
+
+Built with ❤️ by Shayan
