@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { offers } from "@/data/offers";
-
-export const metadata: Metadata = {
-  title: "Special Offers",
-  description: "Check out our latest flight deals and special offers.",
-};
 
 export default function Offers() {
   const validOffers = offers.filter(
