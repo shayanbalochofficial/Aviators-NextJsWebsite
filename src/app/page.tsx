@@ -7,7 +7,7 @@ import { offers } from "@/data/offers";
 import { Footer } from "./../components/footer";
 
 export const metadata: Metadata = {
-  title: "Aviators - Book Flights Worldwide",
+  title: "Aviators",
   description:
     "Search and book flights to destinations worldwide with Aviators. Fast, reliable, and affordable.",
 };
@@ -72,7 +72,10 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/cities">
-                  <Button variant="outline" className="cursor-pointer hover:bg-primary">
+                  <Button
+                    variant="outline"
+                    className="cursor-pointer hover:bg-primary"
+                  >
                     Explore Cities
                   </Button>
                 </Link>

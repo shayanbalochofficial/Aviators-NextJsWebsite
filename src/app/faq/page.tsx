@@ -1,5 +1,11 @@
-import Link from "next/link";
-import React from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqItems = [
   {
@@ -110,10 +116,62 @@ const faqItems = [
 
 export default function FAQ() {
   return (
-    <div>
-      <Link href="/" className="text-blue-500 mx-15 mt-15 underline">
-        HOME
-      </Link>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+
+      <main className="flex-1">
+        <section className="bg-primary text-primary-foreground py-12 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-lg opacity-90">
+              Find answers to common questions about booking flights with
+              Aviators
+            </p>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            {faqItems.map((category) => (
+              <div key={category.id} className="mb-12">
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  {category.title}
+                </h2>
+
+                <Accordion type="single" collapsible className="w-full">
+                  {category.questions.map((item, idx) => (
+                    <AccordionItem
+                      key={`${category.id}-${idx}`}
+                      value={`${category.id}-${idx}`}
+                      className="border-b border-border"
+                    >
+                      <AccordionTrigger className="hover:text-primary font-medium py-4">
+                        {item.q}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground pb-4">
+                        {item.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            ))}
+
+            <div className="mt-16 pt-8 border-t border-border text-center">
+              <h3 className="text-xl font-bold mb-2">
+                Didn&apos;t find your answer?
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Our customer support team is here to help. Contact us anytime!
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }
